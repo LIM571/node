@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+  <header>
+  </header>
+  <div class="container">
+    <h2>Editar</h2>
+    <% lutadores.forEach(function(lutador) { %>
+      <form action="/editar/<%= lutador.id %>" method="POST">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" class="form-control" name="nome" value="<%= lutador.nome %>" required>
+        </div>
+        <div class="form-group">
+          <label for="nome_luta">Nome de Luta:</label>
+          <input type="text" class="form-control" name="nome_luta" value="<%= lutador.nome_luta %>" required>
+        </div>
+        <div class="form-group">
+          <label for="idade">Idade:</label>
+          <input type="text" class="form-control" name="idade" value="<%= lutador.idade %>" required>
+        </div>
+        <div class="form-group">
+          <label for="peso">Peso:</label>
+          <input type="text" class="form-control" name="peso" value="<%= lutador.peso %>" required>
+        </div>
+        <div class="form-group">
+          <label for="imagem">Imagem:</label>
+          <input type="text" class="form-control" name="imagem" value="<%= lutador.imagem %>" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    <% }) %>
+  </div>
+  <button><a href="/" class="material-icons">arrow_back</a></button>
+</body>
+</html>

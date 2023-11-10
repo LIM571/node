@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-yellow-400">
+    <div class="container mx-auto p-8 text-center">
+        <% if(mensagem) { %>
+            <p> <%= mensagem %> </p>
+        <% } %>
+        <form action="/cadastro" method="POST" class="max-w-md mx-auto bg-gray-700 p-6 rounded-lg shadow-md">
+            <a href="/" class="text-white text-left mr-72 "><--Voltar</a>
+            <div class="mb-4">
+                <label for="nome" class="block text-white font-bold mb-2">Nome:</label>
+                <input type="text" name="nome" id="nome" class=" px-3 py-2 rounded-md border focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-white font-bold mb-2">Email:</label>
+                <input type="email" name="email" id="email" class=" px-3 py-2 rounded-md border focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="senha" class="block text-white font-bold mb-2">Senha:</label>
+                <input type="password" name="senha" id="senha" class=" px-3 py-2 rounded-md border focus:outline-none focus:border-blue-500">
+            </div>
+            <button type="submit" class="w-16 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300">Enviar</button>
+        </form>
+    </div>
+</body>
+
+
+
+</html>

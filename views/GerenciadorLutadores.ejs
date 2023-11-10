@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/output.css" rel="stylesheet" />
+    <title>Lutadores</title>
+</head>
+
+<body class="bg-yellow-600">
+    <nav class="p-6 bg-slate-900 h-24 ">
+        <div class="h-24 container mx-auto flex items-center justify-between mb-12">
+            <!-- Logo com link (lado esquerdo) -->
+            <div class="space-x-20">
+                <div class="flex items-center">
+                    <a href="/">
+                        <img src="/img/logo.png" alt="Unabomber" class="h-12 text-white" id="logo-image"
+                            onmouseover="changeImage()" onmouseout="resetImage()" />
+                    </a>
+                    <a href="/" class="text-white hover:text-yellow-300 ml-2">Unabomber</a>
+                </div>
+            </div>
+            <!-- Menu Hamburguer (visível em telas pequenas) -->
+            <div class="space-x-4 md:hidden">
+                <!-- md:hidden significa que essa parte é visível apenas em telas médias e menores -->
+                <button id="menu-toggle" class=" hover:text-yellow-300 focus:outline-none">
+                    <!-- Altere a classe para text-green-500 para tornar o ícone verde -->
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="2rem" height="2rem"
+                        viewBox="0 0 50 50" style="fill:#FFFFFF;">
+                        <path
+                            d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Links de navegação (lado direito) -->
+            <div class="hidden md:flex space-x-4">
+                <!-- md:flex significa que essa parte é visível em telas médias e maiores -->
+                <a href="/logout" class="text-white hover:text-yellow-300">Logout</a>
+                <a href="/cadastro" class="text-white hover:text-yellow-300">Cadastro</a>
+                <a href="/perfil" class="text-white hover:text-yellow-300">perfil</a>
+
+
+
+            </div>
+        </div>
+        <!-- Menu Dropdown (visível em telas pequenas) -->
+        <ul id="menu-dropdown" class="hidden md:hidden text-white mt-2">
+            <li><a href="/login" class="block py-2">Login</a></li>
+            <li><a href="/cadastro" class="block py-2">Cadastro</a></li>
+            <li><a href="/lutador" class="block py-2">Lutadores</a></li>
+        </ul>
+    </nav>
+
+
+
+
+    <div class="container">
+        <h2>Lutadores</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Nome de Luta</th>
+                    <th>Idade</th>
+                    <th>Peso</th>
+                    <th>Imagem</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% lutadores.forEach(function(lutador) { %>
+                    <tr>
+                        <td>
+                            <%= lutador.nome %>
+                        </td>
+                        <td>
+                            <%= lutador.nome_luta %>
+                        </td>
+                        <td>
+                            <%= lutador.idade %>
+                        </td>
+                        <td>
+                            <%= lutador.peso %>
+                        </td>
+                        <td><img src="imagens/<%= lutador.imagem %>" style="height:100px" /></td>
+                        <td>
+                            <a href="/editar/<%= lutador.id %>">
+                                <span>Editar</span>
+                            </a>
+                            <a href="/apagar/<%= lutador.id %>">
+                                <span>Apagar</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function changeImage() {
+        document.getElementById('logo-image').src = '/img/lg.png';
+    }
+
+    function resetImage() {
+        document.getElementById('logo-image').src = '/img/logo.png';
+    }
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuDropdown = document.getElementById('menu-dropdown');
+
+    menuToggle.addEventListener('click', () => {
+        menuDropdown.classList.toggle('hidden');
+    });
+</script>
+
+</body>
+
+</html>

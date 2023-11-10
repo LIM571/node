@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unabomber</title>
+    <!-- Inclua o CSS do Tailwind CSS (certifique-se de que o arquivo CSS esteja configurado corretamente) -->
+    <link href="/styles/output.css" rel="stylesheet" />
+</head>
+
+<body class="bg-cover bg-top bg-no-repeat" style="background-image: url('/img/fundo.png');">
+    <nav class="p-4">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo com link (lado esquerdo) -->
+            <div class="space-x-20">
+                <div class="flex items-center">
+                    <a href="/">
+                        <img src="/img/logo.png" alt="Unabomber" class="h-12 text-white" id="logo-image" onmouseover="changeImage()" onmouseout="resetImage()" />
+                    </a>
+                    <a href="/" class="text-white hover:text-yellow-300 ml-2">Unabomber</a>
+                </div>
+            </div>
+            <!-- Menu Hamburguer (visível em telas pequenas) -->
+            <div class="space-x-4 md:hidden">
+                <!-- md:hidden significa que essa parte é visível apenas em telas médias e menores -->
+                <button id="menu-toggle" class=" hover:text-yellow-300 focus:outline-none">
+                    <!-- Altere a classe para text-green-500 para tornar o ícone verde -->
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="2rem" height="2rem" viewBox="0 0 50 50"
+                        style="fill:#FFFFFF;">
+                        <path
+                            d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Links de navegação (lado direito) -->
+            <div class="hidden md:flex space-x-4">
+                <!-- md:flex significa que essa parte é visível em telas médias e maiores -->
+                <a href="/login" class="text-white hover:text-yellow-300">Login</a>
+                <a href="/cadastro" class="text-white hover:text-yellow-300">Cadastro</a>
+                <a href="/lutador" class="text-white hover:text-yellow-300">Lutadores</a>
+            </div>
+        </div>
+        <!-- Menu Dropdown (visível em telas pequenas) -->
+        <ul id="menu-dropdown" class="hidden md:hidden text-white mt-2">
+            <li><a href="/login" class="block py-2">Login</a></li>
+            <li><a href="/cadastro" class="block py-2">Cadastro</a></li>
+            <li><a href="/lutador" class="block py-2">Lutadores</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo da sua página -->
+    <div class="mx-auto text-white text-center">
+        <h1 class="text-5xl my-5">Se Depender de</h1>
+        <h1 class="text-5xl text-center">Nós</h1>
+        <h2 class="text-xl text-center my-7">Vamos Até o Fim</h2>
+    </div>
+    <div class="mx-auto text-center">
+        <button class="h-12 w-48 rounded-2xl bg-yellow-400 text-3xl">Sobre Nós</button>
+    </div>
+
+    <script>
+        function changeImage() {
+            document.getElementById('logo-image').src = '/img/lg.png';
+        }
+
+        function resetImage() {
+            document.getElementById('logo-image').src = '/img/logo.png';
+        }
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuDropdown = document.getElementById('menu-dropdown');
+
+        menuToggle.addEventListener('click', () => {
+            menuDropdown.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+
+</html>
